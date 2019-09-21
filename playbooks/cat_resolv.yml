@@ -1,0 +1,13 @@
+---
+- hosts: sanity-etc
+  tasks:
+  - name: Copy DNS in /etc/resolv.conf
+    copy:
+      src: /homes/nuthanc/ansible_test/playbooks/res.conf
+      dest: /etc/resolv.conf
+      owner: root
+      group: root
+      mode: '0777' 
+    
+    
+
