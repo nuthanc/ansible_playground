@@ -1,0 +1,9 @@
+---
+- hosts: virtual
+  tasks:
+    - name: Check contrail status
+      command: contrail-status
+      register: output
+    - debug: 
+        var: output.stdout_lines
+      

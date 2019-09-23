@@ -7,6 +7,6 @@
       register: output
     
     - debug:
-        var: output
-     
+        var: item.stdout
+      loop: "{{output.results}}"
   
