@@ -1,9 +1,9 @@
 ---
-- hosts: sanity-etc
+- hosts: cc
   tasks:
   - name: Copy DNS in /etc/resolv.conf
     copy:
-      src: /homes/nuthanc/ansible_test/playbooks/res.conf
+      src: /homes/nuthanc/ansible_for_auto/playbooks/res.conf
       dest: /etc/resolv.conf
       owner: root
       group: root
