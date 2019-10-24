@@ -1,0 +1,10 @@
+First in remote:
+    adduser regress
+    passwd regress
+    usermod -aG docker regress
+
+In local:
+    ssh regress@nodea4.englab.juniper.net -L localhost:12345:/var/run/docker.sock -N
+    Open another terminal and export DOCKER_HOST="tcp://localhost:12345"
+    Open code from that terminal 
+

@@ -1,0 +1,5 @@
+---
+- hosts: nodeg12.englab.juniper.net
+  tasks:
+  - name: Run sanity
+    shell: . run_sanity.sh
