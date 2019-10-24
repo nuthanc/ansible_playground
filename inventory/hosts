@@ -24,11 +24,11 @@ nodec60.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 noden11.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 
 [virtual]
-10.204.217.194 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+10.204.218.103 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 10.204.218.100 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 10.204.218.101 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
-10.204.217.197 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
-10.204.217.198 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+10.204.218.104 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+10.204.218.105 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 
 [virtual-computes]
 10.204.217.197 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
