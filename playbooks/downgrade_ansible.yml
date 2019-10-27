@@ -1,0 +1,9 @@
+---
+- hosts: virtual
+  tasks:
+    - name: Uninstall ansible 
+      command: pip uninstall -y ansible
+
+    - name: Install ansible 2.5.2
+      command: pip install ansible==2.5.2
+  

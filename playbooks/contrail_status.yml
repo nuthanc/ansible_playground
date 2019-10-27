@@ -1,5 +1,5 @@
 ---
-- hosts: sanity-etc
+- hosts: virtual
   tasks:
     - name: Check contrail status
       command: contrail-status
