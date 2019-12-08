@@ -1,5 +1,5 @@
 ---
-- hosts: virtual
+- hosts: virtual-master
   tasks:
     - name: Uninstall ansible 
       command: pip uninstall -y ansible
@@ -7,3 +7,7 @@
     - name: Install ansible 2.5.2
       command: pip install ansible==2.5.2
   
+- hosts: virtual-rem
+  tasks:
+    - name: Uninstall ansible 
+      command: yum remove -y ansible  # pip uninstall -y ansible
