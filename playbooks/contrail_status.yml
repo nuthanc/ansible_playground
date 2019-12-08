@@ -9,4 +9,4 @@
 
     - debug:
         msg: I do have DB is too low
-      when: '"nodemgr: initializing (Disk for DB is too low. )" in output.stdout_lines'        
+      when: '"Disk for DB is too low" in output.stdout_lines | join'        
