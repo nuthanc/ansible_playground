@@ -10,6 +10,6 @@
     - name: Active checker
       command: contrail-status
       register: output
-      until: '"api: active" not in output.stdout_lines | join'
+      until: '"api: initializing" not in output.stdout_lines | join'
       retries: 10
       delay: 60
