@@ -10,3 +10,9 @@
     - debug:
         msg: I do search nodemgr initializing and schema backup updated
       when: '"nodemgr: initializing" and "schema: backup" in output.stdout_lines | join'      
+
+    - command: contrail-status
+      register: output
+      until: '"api: initializing" or "schema: initializing" or "connection down" not in output.stdout_lines | join'
+      retries: 10
+      delay: 60
