@@ -8,5 +8,5 @@
         var: output.stdout_lines
 
     - debug:
-        msg: I do have DB is too low
-      when: '"Disk for DB is too low" in output.stdout_lines | join'        
+        msg: I do nodemgr initializing and schema backup
+      when: '"nodemgr: initializing" in output.stdout_lines | join and "schema: backup" in output.stdout_lines | join'      
