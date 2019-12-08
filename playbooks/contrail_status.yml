@@ -1,9 +1,15 @@
 ---
 - hosts: "{{ host | default('physical') }}"
   tasks:
-    - name: Check contrail status
+    # - name: Check contrail status
+    #   command: contrail-status
+    #   register: output
+    # - debug: 
+    #     var: output.stdout_lines    
+
+    - name: Active checker
       command: contrail-status
       register: output
-    - debug: 
-        var: output.stdout_lines
-
+      until: '"api: active" not in output.stdout_lines | join'
+      retries: 10
+      delay: 60
