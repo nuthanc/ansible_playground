@@ -6,4 +6,7 @@
       register: output
     - debug: 
         var: output.stdout_lines
-      
+
+    - debug:
+        msg: I do have DB is too low
+      when: '"nodemgr: initializing (Disk for DB is too low. )" in output.stdout_lines'        
