@@ -1,0 +1,12 @@
+---
+# tasks file for sanity
+- debug:
+    var: version
+- name: Copy run_sanity.sh and contrail_test_input.yaml to c19
+  copy:
+    src: "{{ item }}"
+    dest: /root
+  with_fileglob:
+    - files/*
+- name: Run sanity
+  shell: "bash run_sanity.sh {{ version }}"

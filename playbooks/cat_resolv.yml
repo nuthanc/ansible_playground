@@ -1,5 +1,5 @@
 ---
-- hosts: cc
+- hosts: c19
   tasks:
   - name: Copy DNS in /etc/resolv.conf
     copy:
