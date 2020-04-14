@@ -1,5 +1,4 @@
 ---
-- hosts: nodec19.englab.juniper.net
+- hosts: "{{ host | default('10.204.218.103') }}"
   roles:
     - sanity
-   

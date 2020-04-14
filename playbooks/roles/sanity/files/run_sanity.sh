@@ -3,6 +3,7 @@ PYTHONPATH=./scripts:./fixtures
 TEST_CONFIG_FILE=contrail_test_input.yaml
 EMAIL_SUBJECT=Python3-sanity:k8s
 MX_GW_TEST=1
+PYTHON3=1
 EOF
 
 docker run --entrypoint /bin/bash --network=host -t --env-file ./env.list \
