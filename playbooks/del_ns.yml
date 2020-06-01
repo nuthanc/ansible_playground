@@ -1,0 +1,5 @@
+---
+- hosts: "{{ host | default('virtual') }}"
+  tasks:
+    - name: Delete server-manager nameserver
+      command: sed -i '/10.204.217.158$/d' /etc/resolv.conf
