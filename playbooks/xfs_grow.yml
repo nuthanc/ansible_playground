@@ -1,0 +1,6 @@
+- hosts: virtual
+  tasks:
+    - name: Do xfs_growfs inside the VM after boot for Centos
+      shell: xfs_growfs /dev/sda1
+      ignore_errors: True
+      when: ansible_facts['distribution'] == "CentOS"
