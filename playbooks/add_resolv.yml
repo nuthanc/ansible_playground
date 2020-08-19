@@ -1,0 +1,10 @@
+---
+- hosts: virtual
+  tasks:
+  - name: Add Google nameserver
+    lineinfile: 
+      path: /etc/resolv.conf
+      line: "nameserver 8.8.8.8"
+    
+    
+

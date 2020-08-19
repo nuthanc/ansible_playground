@@ -2,7 +2,7 @@
 # tasks file for sanity
 - debug:
     var: version
-- name: Copy run_sanity.sh and contrail_test_input.yaml to c19
+- name: Copy run_sanity.sh and contrail_test_input.yaml
   copy:
     src: "{{ item }}"
     dest: /root
@@ -13,8 +13,13 @@
 - name: Create and run contrail-test-test container
   docker_container:
     name: contrail-test-python3
-    image: bng-artifactory.juniper.net/contrail-nightly/contrail-test-test
-    entrypoint: 
+    image: bng-artifactory.juniper.net/contrail-nightly/contrail-test-test: {{ version }}
+    env_file: /root/env_file
+    network_mode: host
+    volumes:
+      - /root/contrail_test_input.yaml:/contrail-test/contrail_test_input.yaml
+    entrypoint: /bin/bash
+    command: bash /contrail-test/run_tests.sh -m -U -T k8s_sanity -t
 
 # docker run --entrypoint /bin/bash --network=host -t --env-file ./env.list \
 # -v /root/contrail_test_input.yaml:/contrail-test/contrail_test_input.yaml \
