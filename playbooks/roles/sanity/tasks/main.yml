@@ -10,24 +10,6 @@
   with_fileglob:
     - files/*
 
-# - name: Pull docker test image
-#   command: >
-#     docker pull "{{ contrailregistry }}/contrail-test-test:{{ version }}"
-
-# - name: Get testrunner script from github
-#   get_url:
-#     url: "https://raw.githubusercontent.com/tungstenfabric/tf-test/master/testrunner.sh"
-#     dest: "{{ tmpdir.path }}/testrunner.sh"
-#     mode: 0755
-
-# - name: write to test_runner.sh
-#   replace:
-#     path: "{{ tmpdir.path }}/testrunner.sh"
-#     regexp: '--privileged'
-    # replace: '--privileged --network host'
-# - name: Run sanity
-#   shell: "bash run_sanity.sh {{ version }}"
-
 - name: Create and run contrail-test-test container
   docker_container:
     name: nuthan_test
@@ -37,9 +19,4 @@
     volumes:
       - /root/contrail_test_input.yaml:/contrail-test/contrail_test_input.yaml
     entrypoint: /entrypoint.sh
-    # working_dir: /contrail-test
-    # command: -l -c -x /contrail-test/run_tests.sh
 
-# docker run --entrypoint /bin/bash --network=host -t --env-file ./env.list \
-# -v /root/contrail_test_input.yaml:/contrail-test/contrail_test_input.yaml \
-# bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:$1 -c -x /contrail-test/run_tests.sh -m -U -T k8s_sanity -t
