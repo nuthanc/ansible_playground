@@ -9,6 +9,8 @@
     dest: /root
   with_fileglob:
     - files/*
+  tags:
+    - copy
 
 - name: Create and run contrail-test-test container
   docker_container:
