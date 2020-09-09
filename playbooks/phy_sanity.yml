@@ -1,0 +1,4 @@
+---
+- hosts: "{{ host | default('10.204.217.52') }}"
+  roles:
+    - phy_sanity
