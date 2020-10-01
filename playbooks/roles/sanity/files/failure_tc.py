@@ -29,11 +29,9 @@ def parse_data():
     try:
         from bs4 import BeautifulSoup
     except Exception:
-        from subprocess import run, PIPE
-        import shlex
-        cmd = shlex.split('pip3 install bs4')
-        p = run(cmd, check=True, stdout=PIPE)
-        print(p.stdout)
+        import os
+        os.system('pip3 install bs4')
+        from bs4 import BeautifulSoup
     data = BeautifulSoup(response.text, 'html.parser')
     # print(data.find("tr",{"class":"Error"}).prettify()) 
     error_class_html = data.find_all("tr", {"class": "Error"})
