@@ -1,10 +1,6 @@
 import requests
 import re
-try:
-  from bs4 import BeautifulSoup
-except Exception:
-  import os
-  os.system("pip3 install bs4")
+
 #variables
 
 # target URL to scrap
@@ -30,6 +26,14 @@ def construct_fully_qualified_test_name(test_case, test_case_with_class, loc):
 
 # parse the downloaded data
 def parse_data():
+    try:
+        from bs4 import BeautifulSoup
+    except Exception:
+        from subprocess import run, PIPE
+        import shlex
+        cmd = shlex.split('pip3 install bs4')
+        p = run(cmd, check=True, stdout=PIPE)
+        print(p.stdout)
     data = BeautifulSoup(response.text, 'html.parser')
     # print(data.find("tr",{"class":"Error"}).prettify()) 
     error_class_html = data.find_all("tr", {"class": "Error"})
