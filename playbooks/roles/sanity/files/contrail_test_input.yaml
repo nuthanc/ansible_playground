@@ -112,7 +112,7 @@ test_configuration:
     mail_server:
         server: 10.47.226.20 
         port: 25
-        to: dl-contrail-sw-in@juniper.net
+        to: dl-contrail-sw-in@juniper.net, contrail-test-team@juniper.net
         sender: contrailbuild@juniper.net
 
 server_manager:
