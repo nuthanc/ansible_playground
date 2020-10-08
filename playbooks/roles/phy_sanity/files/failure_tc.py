@@ -5,6 +5,7 @@ try:
 except Exception:
   import os
   os.system("pip3 install bs4")
+  from bs4 import BeautifulSoup
 #variables
 
 # target URL to scrap
