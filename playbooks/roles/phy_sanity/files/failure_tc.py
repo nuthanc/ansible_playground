@@ -55,3 +55,5 @@ def parse_data():
         print("Location of test case:",loc)
         print()
 
+if __name__ == "__main__":
+    parse_data()
