@@ -2,4 +2,4 @@
   become: yes
   tasks:
     - name: Enable snat in default namespace
-      shell: 
+      shell: kubectl get ns default -o yaml > default.yaml && sed -i '/metadata:/a\  annotations:\n    opencontrail.org/ip_fabric_snat:\ "true"' default.yaml && kubectl replace -f default.yaml
