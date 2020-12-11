@@ -1,0 +1,5 @@
+- hosts: 192.168.7.29
+  become: yes
+  tasks:
+    - name: Enable snat in default namespace
+      shell: 
