@@ -1,0 +1,13 @@
+---
+- hosts: c19
+  tasks:
+  - name: set version
+    set_fact:
+      version : 'queens-2011.61-ubi'
+  - debug: 
+      var:  version 
+  - name: set contrail version
+    set_fact:
+            new_version: "{{ version| replace('queens-', '') | replace('-ubi','')}}"
+  - debug:
+      var:  new_version
