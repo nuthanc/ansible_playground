@@ -1,0 +1,15 @@
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Set keystone context
+      command: "{{item}}"
+      with_items:
+        - kubectl config set-context keystone --user=keystone-user
+        - kubectl config use-context keystone
+        - kubectl config set-credentials keystone-user --exec-command=/snap/bin/client-keystone-auth
+        - kubectl config set-credentials keystone-user --exec-api-version=client.authentication.k8s.io/v1beta1
+    - name: Set juju-cluster for keystone context
+      replace:
+        path: /root/.kube/config
+        regexp: 'cluster: \"\"'
+        replace: 'cluster: juju-cluster'

@@ -1,3 +1,4 @@
+localhost
 192.168.7.29 ansible_ssh_user=ubuntu
 192.168.7.34 ansible_ssh_user=ubuntu  
 192.168.7.20 ansible_ssh_user=ubuntu 
