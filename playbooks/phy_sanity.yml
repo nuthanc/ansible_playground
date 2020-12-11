@@ -1,4 +1,0 @@
----
-- hosts: "{{ host | default('nodeg12.englab.juniper.net') }}"
-  roles:
-    - phy_sanity

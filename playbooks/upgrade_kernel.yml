@@ -1,9 +1,0 @@
----
-- hosts: virtual-computes
-  tasks:
-    - name: Upgrade kernel version
-      shell: yum upgrade -y kernel-devel;yum upgrade -y kernel; reboot 
-      # kernel-3.10.0-1062.1.1.el7
-      register: output
-    - debug: 
-        var: output
