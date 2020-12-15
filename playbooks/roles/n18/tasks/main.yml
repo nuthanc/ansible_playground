@@ -6,5 +6,5 @@
   with_fileglob:
     - files/*
   tags:
-    - copy
+    - transfer
 
