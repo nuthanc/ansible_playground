@@ -1,0 +1,16 @@
+- hosts: 192.168.7.29
+  become: yes
+  tasks:
+    - name: find files to copy
+      find: 
+        paths: "/etc/contrail/ssl"
+        recurse: yes 
+        patterns: "*.pem"
+      register: files_to_copy
+
+    - name: Copy files
+      fetch: 
+        src: '{{ item.path }}'
+        dest: /etc/contrail/ssl/
+        flat: yes
+      with_items: "{{ files_to_copy.files }}"
