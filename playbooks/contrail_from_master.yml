@@ -1,3 +1,9 @@
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Create ssl dir
+      command: mkdir /etc/contrail/ssl
+
 - hosts: 192.168.7.29
   become: yes
   tasks:
@@ -14,3 +20,15 @@
         dest: /etc/contrail/ssl/
         flat: yes
       with_items: "{{ files_to_copy.files }}"
+
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Move certs to ssl dir
+      command: "{{item}}"
+      with_items:
+        - mkdir /etc/contrail/ssl/certs
+        - mkdir /etc/contrail/ssl/private
+        - mv /etc/contrail/ssl/server.pem /etc/contrail/ssl/certs
+        - mv /etc/contrail/ssl/ca-cert.pem /etc/contrail/ssl/certs
+        - mv /etc/contrail/ssl/server-privkey.pem /etc/contrail/ssl/private
