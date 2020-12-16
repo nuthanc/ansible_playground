@@ -45,5 +45,5 @@
       lineinfile:
         path: /root/.local/share/juju/accounts.yaml
         insertafter: 'user: admin'
-        line: "\t\tpassword: c0ntrail123"
+        line: "    password: c0ntrail123"
         state: 'present'
