@@ -2,7 +2,10 @@
   become: yes
   tasks:
     - name: Create ssl dir
-      command: mkdir /etc/contrail/ssl
+      file:
+        path: /etc/contrail/ssl
+        state: directory
+        mode: '0755'
 
 - hosts: 192.168.7.29
   become: yes
@@ -24,11 +27,23 @@
 - hosts: localhost
   become: yes
   tasks:
+    - name: Create certs and private dir
+      file:
+        path: "{{item}}"
+        state: directory
+        mode: '0755'
+      with_items:
+        - /etc/contrail/ssl/certs
+        - /etc/contrail/ssl/private
     - name: Move certs to ssl dir
       command: "{{item}}"
       with_items:
-        - mkdir /etc/contrail/ssl/certs
-        - mkdir /etc/contrail/ssl/private
         - mv /etc/contrail/ssl/server.pem /etc/contrail/ssl/certs
         - mv /etc/contrail/ssl/ca-cert.pem /etc/contrail/ssl/certs
         - mv /etc/contrail/ssl/server-privkey.pem /etc/contrail/ssl/private
+    - name: Add password to controller
+      lineinfile:
+        path: /root/.local/share/juju/accounts.yaml
+        insertafter: 'user: admin'
+        line: "\t\tpassword: c0ntrail123"
+        state: 'present'
