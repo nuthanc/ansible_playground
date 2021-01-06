@@ -1,0 +1,43 @@
+---
+- hosts: m14
+  tasks:
+    - name: Install git
+      yum:
+        name: git
+        state: present
+
+    # - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+    #   community.crypto.openssh_keypair:
+    #     path: /root/.ssh/id_rsa
+
+    - name: Git checkout scaling
+      git:
+        repo: https://github.com/nuthanc/scaling.git
+        dest: /root/nuthanc-scaling
+        version: sub_intf
+        update: no
+
+    - name: Get contrail version string from docker cmd
+      shell: docker ps| grep controller-control-control
+      register: out
+
+    - set_fact:
+        temp: '{{ out.stdout_lines | join }}'
+
+    - name: Set contrail version
+      set_fact:
+        contrail_version: "{{ temp | regex_search(':([\\w\\d]+\\.\\d+)') | replace(':','')}}"
+    # - debug: msg="{{ temp | regex_search(':([\w\d]+\\.\d+)') | replace(':','')}}"
+
+    - name: Contrail version
+      debug: msg="{{ contrail_version }}"
+
+    - name: Create and run contrail-test-test container
+      docker_container:
+        name: nuthan_test
+        image: bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:{{ contrail_version }}
+        network_mode: host
+        volumes:
+          - /root/nuthanc-scaling:/root/nuthanc-scaling
+        entrypoint: /bin/bash
+        interactive: yes
