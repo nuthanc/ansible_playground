@@ -17,3 +17,6 @@
 
 [m14]
 nodem14.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+
+[m16]
+nodem16.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123

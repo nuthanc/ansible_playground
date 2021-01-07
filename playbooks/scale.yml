@@ -1,5 +1,5 @@
 ---
-- hosts: m14
+- hosts: m16
   tasks:
     - name: Install git
       yum:
