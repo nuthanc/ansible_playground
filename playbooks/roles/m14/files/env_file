@@ -1,0 +1,7 @@
+PYTHONPATH=/contrail-test/scripts:/contrail-test/fixtures
+TEST_CONFIG_FILE=contrail_test_input.yaml
+EMAIL_SUBJECT=m14-openstack
+MX_GW_TEST=1
+PYTHON3=1
+TEST_RUN_CMD="python3 -m testtools.run scripts.vm_regression.test_vm.TestBasicIPv6VMVN0.test_broadcast_udp_w_chksum"
+MY_FILE="scripts/vm_regression/test_vm.py"

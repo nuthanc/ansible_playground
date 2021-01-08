@@ -52,3 +52,6 @@ nodec21.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 192.168.7.20 ansible_ssh_user=ubuntu 
 192.168.7.19 ansible_ssh_user=ubuntu 
 192.168.7.9 ansible_ssh_user=ubuntu 
+
+[m14]
+nodem14.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
