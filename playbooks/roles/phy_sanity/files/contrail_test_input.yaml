@@ -76,7 +76,7 @@ global_configuration:
   CONTAINER_REGISTRY: bng-artifactory.juniper.net/contrail-nightly
 
 contrail_configuration:
-  KUBERNETES_PUBLIC_FIP_POOL: {'project': 'default', 'domain': 'default-domain', 'name': '__fip_pool_public__', 'network': '__public__'}
+  KUBERNETES_PUBLIC_FIP_POOL: {'project': 'k8s-default', 'domain': 'default-domain', 'name': '__fip_pool_public__', 'network': '__public__'}
   KUBERNETES_IP_FABRIC_SUBNETS: 77.77.1.160/27
   CLOUD_ORCHESTRATOR: kubernetes
   CONTROLLER_NODES: 10.204.217.52,10.204.217.71,10.204.217.8
