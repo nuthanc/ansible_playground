@@ -14,12 +14,14 @@
 
 - name: Create and run contrail-test-test container
   docker_container:
-    name: nuthan_test
+    name: nuthan_test3
     image: bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:{{ version }}
     env_file: /root/env_file
     network_mode: host
     volumes:
       - /root/contrail_test_input.yaml:/contrail-test/contrail_test_input.yaml
+      - /root/my_script.sh:/contrail-test/my_script.sh
     entrypoint: /bin/bash
+    command: contrail-test/my_script.sh
     interactive: yes
 
