@@ -1,4 +1,4 @@
-PYTHONPATH=/contrail-test/scripts:/contrail-test/fixtures
+PYTHONPATH=/contrail-test:/contrail-test/scripts:/contrail-test/fixtures
 TEST_CONFIG_FILE=contrail_test_input.yaml
 EMAIL_SUBJECT=m14-openstack
 MX_GW_TEST=1
