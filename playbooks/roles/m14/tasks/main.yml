@@ -20,8 +20,8 @@
     network_mode: host
     volumes:
       - /root/contrail_test_input.yaml:/contrail-test/contrail_test_input.yaml
-      - /root/my_script.sh:/contrail-test/my_script.sh
+      - /root/my_script.sh:/my_script.sh
     entrypoint: /bin/bash
-    command: contrail-test/my_script.sh
+    command: /my_script.sh
     interactive: yes
 

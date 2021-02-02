@@ -5,5 +5,5 @@ MX_GW_TEST=1
 PYTHON3=1
 TEST_RUN_CMD=python3 serial_scripts/scale/test_heat_subintf_scale.py
 MY_FILE="serial_scripts/scale/test_heat_subintf_scale.py"
-c=git checkout -t nuthanc/sub_intf
+c=git checkout --track nuthanc/sub_intf
 f=git fetch nuthanc
