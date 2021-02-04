@@ -55,3 +55,8 @@ nodec21.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 
 [m14]
 nodem14.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+
+[m14-controllers]
+nodem14.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+nodem6.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+nodem7.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
