@@ -1,20 +1,21 @@
 - hosts: m14-controllers
   tasks:
-    # - name: Insert heat configs
-    #   lineinfile:
-    #     dest: "{{ item.dest }}"
-    #     insertafter: 'ansible_ssh_host='
-    #     line: "{{ item.line }}"
-    #   with_items:
-    #     - {dest: '/etc/ansible/ansible.cfg', line: 'line changed'}
-    #     - {dest: '/etc/ansible/ansible.cfg', line: 'line changed'}
-    #     - {dest: '/etc/ansible/ansible.cfg', line: 'line changed'}
-    - name: make config absent
+    - name: Insert heat configs
       lineinfile:
         dest: "{{ item.dest }}"
-        state: absent
-        regexp: "{{ item.regexp }}"
+        insertafter: '\[DEFAULT\]'
+        line: "{{ item.line }}"
       with_items:
-        - {dest: '/etc/kolla/heat-engine/heat.conf', regexp: 'max_json_body_size=8388608\nmax_template_size=8388608\nmax_request_body_size=8388608\nmax_resources_per_stack=50000'}
-        - {dest: '/etc/kolla/heat-api-cfn/heat.conf', regexp: 'max_json_body_size=8388608\nmax_template_size=8388608\nmax_request_body_size=8388608\nmax_resources_per_stack=50000'}
-        - {dest: '/etc/kolla/heat-api/heat.conf', regexp: 'max_json_body_size=8388608\nmax_template_size=8388608\nmax_request_body_size=8388608\nmax_resources_per_stack=50000'}
+        - {dest: '/etc/kolla/heat-engine/heat.conf', line: 'max_json_body_size=8388608'}
+        - {dest: '/etc/kolla/heat-engine/heat.conf', line: 'max_template_size=8388608'}
+        - {dest: '/etc/kolla/heat-engine/heat.conf', line: 'max_request_body_size=8388608'}
+        - {dest: '/etc/kolla/heat-engine/heat.conf', line: 'max_resources_per_stack=50000'}
+        - {dest: '/etc/kolla/heat-api-cfn/heat.conf', line: 'max_json_body_size=8388608'}
+        - {dest: '/etc/kolla/heat-api-cfn/heat.conf', line: 'max_template_size=8388608'}
+        - {dest: '/etc/kolla/heat-api-cfn/heat.conf', line: 'max_request_body_size=8388608'}
+        - {dest: '/etc/kolla/heat-api-cfn/heat.conf', line: 'max_resources_per_stack=50000'}
+        - {dest: '/etc/kolla/heat-api/heat.conf', line: 'max_json_body_size=8388608'}
+        - {dest: '/etc/kolla/heat-api/heat.conf', line: 'max_template_size=8388608'}
+        - {dest: '/etc/kolla/heat-api/heat.conf', line: 'max_request_body_size=8388608'}
+        - {dest: '/etc/kolla/heat-api/heat.conf', line: 'max_resources_per_stack=50000'}
+    
