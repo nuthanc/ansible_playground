@@ -6,4 +6,4 @@ PYTHON3=1
 TEST_RUN_CMD=python3 serial_scripts/scale/test_heat_subintf_scale.py
 MY_FILE="serial_scripts/scale/test_heat_subintf_scale.py"
 c=git checkout --track nuthanc/sub_intf
-f=git fetch nuthanc
+f=git fetch https://github.com/nuthanc/tf-test.git sub_intf:sub_intf
