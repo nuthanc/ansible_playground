@@ -1,0 +1,9 @@
+- hosts: 192.168.7.29
+  become: yes
+  tasks:
+    - name: Copy kube config from master to n18
+      fetch:
+        src: /root/.kube/config
+        dest: /root/.kube/config
+        mode: 0774
+        flat: yes
