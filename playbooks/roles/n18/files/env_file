@@ -1,6 +1,6 @@
-PYTHONPATH=/contrail-test/scripts:/contrail-test/fixtures
+PYTHONPATH=/contrail-test:/contrail-test/scripts:/contrail-test/fixtures:/contrail-test/serial_scripts
 TEST_CONFIG_FILE=contrail_test_input.yaml
 EMAIL_SUBJECT=Python3-mi-sanity-k8s
-MX_GW_TEST=1
+MX_GW_TEST=0
 PYTHON3=1
-TEST_RUN_CMD=bash -x run_tests.sh -m -U -s -T k8s_auth
+TEST_RUN_CMD=bash -x run_tests.sh -m -U -s -T auth
