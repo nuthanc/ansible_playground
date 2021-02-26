@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.7.29
+- hosts: localhost
   roles:
     - n18
   become: yes
@@ -14,10 +14,6 @@
       set_fact: 
         auth_url: http://{{ ip.stdout }}:35357/v3
     - debug: msg="{{ auth_url }}"
-
-- hosts: 192.168.7.29, localhost
-  become: yes
-  tasks:
     - name: Set auth url in contrail_test_input
       replace:
         path: /root/contrail_test_input.yaml

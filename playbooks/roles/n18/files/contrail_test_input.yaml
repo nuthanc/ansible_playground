@@ -58,6 +58,9 @@ instances:
     roles:
       vrouter:
       openstack_compute:
+  192.168.7_18:
+    ip: 192.168.7.18
+    provider: bms
 
 global_configuration:
   CONTAINER_REGISTRY: bng-artifactory.juniper.net/contrail-nightly
@@ -95,7 +98,7 @@ test_configuration:
   image_web_server: 10.204.217.158
   auth_port: 35357
   auth_url: http://192.168.7.16:35357/v3
-  juju_server: 192.168.7.29
+  juju_server: 192.168.7.18
   web_server:
     server: 10.204.216.50
     username: bhushana

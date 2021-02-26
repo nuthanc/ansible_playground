@@ -1,0 +1,19 @@
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Get auth ip
+      shell: juju status|grep 5000|awk '{print $5}'
+      register: ip
+    - name: Set auth url
+      set_fact: 
+        auth_url: http://{{ ip.stdout }}:35357/v3
+    - debug: msg="{{ auth_url }}"
+
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Set auth url in contrail_test_input
+      replace:
+        path: /root/contrail_test_input.yaml
+        regexp: 'auth_url: .*'
+        replace: "auth_url: {{ hostvars['localhost']['auth_url'] }}"
