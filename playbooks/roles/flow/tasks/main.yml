@@ -5,3 +5,30 @@
     content: |
       options vrouter vr_flow_entries=1000000
 
+- name: Add flow_cache_timeout in actions.sh of agent container
+  shell: docker exec -it vrouter_vrouter-agent_1 sed -i '/\[DEFAULT\]/a flow_cache_timeout=9999' actions.sh
+
+- name: Stop agent container
+  docker_container:
+    name: vrouter_vrouter-agent_1
+    state: stopped
+
+- name: Unload vrouter module
+  shell: rmmod vrouter
+
+- name: Free RAM
+  shell: free && sync && echo 3 > /proc/sys/vm/drop_caches && free
+
+- name: Insert vrouter module
+  shell: modprobe vrouter
+
+- name: Start agent container
+  docker_container:
+    name: vrouter_vrouter-agent_1
+    state: started
+
+- name: contrail-tools vrouter info
+  shell: contrail-tools vrouter --info
+  register: result
+
+- debug: msg="{{ result.stdout }}"
