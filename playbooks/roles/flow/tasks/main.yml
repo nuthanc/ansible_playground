@@ -31,4 +31,4 @@
   shell: contrail-tools vrouter --info
   register: result
 
-- debug: msg="{{ result.stdout }}"
+- debug: msg="{{ result.stdout_lines }}"
