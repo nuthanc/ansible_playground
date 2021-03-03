@@ -1,0 +1,6 @@
+sshpass -p c0ntrail123 ssh root@nodem8.englab.juniper.net -o StrictHostKeyChecking=no
+sshpass -p c0ntrail123 ssh root@nodem9.englab.juniper.net -o StrictHostKeyChecking=no
+sshpass -p c0ntrail123 ssh root@nodem10.englab.juniper.net -o StrictHostKeyChecking=no
+sshpass -p c0ntrail123 ssh root@nodem6.englab.juniper.net -o StrictHostKeyChecking=no
+sshpass -p c0ntrail123 ssh root@nodem14.englab.juniper.net -o StrictHostKeyChecking=no
+sshpass -p c0ntrail123 ssh root@nodem7.englab.juniper.net -o StrictHostKeyChecking=no

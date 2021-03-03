@@ -1,0 +1,9 @@
+- hosts: m14-controllers
+  tasks:
+    - name: Docker restart api
+      command: docker restart config_api_1
+
+- hosts: m14-computes
+  tasks:
+    - name: Docker restart agent
+      command: docker restart vrouter_vrouter-agent_1

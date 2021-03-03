@@ -14,7 +14,7 @@
 
 - name: Create and run contrail-test-test container
   docker_container:
-    name: nuthan_test3
+    name: nuthan_test6
     image: bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:{{ version }}
     env_file: /root/env_file
     network_mode: host

@@ -1,0 +1,7 @@
+---
+- name: Add flow entries to /etc/modprobe.d/vrouter.conf
+  copy:
+    dest: /etc/modprobe.d/vrouter.conf
+    content: |
+      options vrouter vr_flow_entries=1000000
+
