@@ -65,3 +65,6 @@ nodem7.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ans
 nodem8.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 nodem9.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 nodem10.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[nodei2]
+nodei2.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ansible_ssh_common_args='-o StrictHostKeyChecking=no'

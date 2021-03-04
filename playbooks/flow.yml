@@ -1,4 +1,4 @@
 ---
-- hosts: m14-computes
+- hosts: nodei2
   roles:
     - flow
