@@ -1,31 +1,31 @@
 ---
-- name: Add flow entries to /etc/modprobe.d/vrouter.conf
-  copy:
-    dest: /etc/modprobe.d/vrouter.conf
-    content: |
-      options vrouter vr_flow_entries=1000000
-
-- name: Add flow_cache_timeout in actions.sh of agent container
-  shell: docker exec -it vrouter_vrouter-agent_1 sed -i '/\[DEFAULT\]/a flow_cache_timeout=9999' actions.sh
+- name: Add vr_flow_entries in common_vrouter.env
+  lineinfile:
+    path: /etc/contrail/common_vrouter.env
+    line: vr_mpls_labels=196000 vr_nexthops=200000 vr_vrfs=65536 vr_bridge_entries=1000000 vr_flow_entries=1000720
 
 - name: Stop agent container
   docker_container:
     name: vrouter_vrouter-agent_1
     state: stopped
 
-- name: Unload vrouter module
-  shell: rmmod vrouter
+- name: Bring down vhost0
+  shell: ifdown vhost0
+
+- name: Docker composde down and up of vrouter
+  shell: cd /etc/contrail/vrouter && docker-compose down && docker-compose up -d
 
 - name: Free RAM
   shell: free && sync && echo 3 > /proc/sys/vm/drop_caches && free
 
-- name: Insert vrouter module
-  shell: modprobe vrouter
+- name: Add flow_cache_timeout in actions.sh of agent container
+  shell: docker exec -it vrouter_vrouter-agent_1 sed -i '/\[DEFAULT\]/a flow_cache_timeout=9999' actions.sh
 
 - name: Start agent container
   docker_container:
     name: vrouter_vrouter-agent_1
     state: started
+    restart: yes
 
 - name: contrail-tools vrouter info
   shell: contrail-tools vrouter --info
