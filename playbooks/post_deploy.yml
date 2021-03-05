@@ -1,0 +1,19 @@
+---
+- name: Add ip routes to k8s controller and compute
+  import_playbook: routes.yml
+
+- name: Enable snat in default namespace
+  import_playbook: snat.yml
+
+- name: Set keystone context in juju server
+  import_playbook: context.yml
+
+- name: Get ssl certificates in juju server
+  import_playbook: ssl.yml
+
+- name: Copy and update sanity files in juju server
+  import_playbook: cp_sanity_files.yml
+
+- name: Enable Password Authentication and PermitRootLogin in all nodes
+  import_playbook: password.yml
+
