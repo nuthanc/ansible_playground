@@ -1,13 +1,19 @@
 ---
-- name: Add vr_flow_entries in common_vrouter.env
-  lineinfile:
+# - name: Add vr_flow_entries in common_vrouter.env
+#   lineinfile:
+#     path: /etc/contrail/common_vrouter.env
+#     line: VROUTER_MODULE_OPTIONS="vr_mpls_labels=196000 vr_nexthops=200000 vr_vrfs=65536 vr_bridge_entries=1000000 vr_flow_entries=1000820"
+
+- name: Replace VROUTER_MODULE_OPTIONS
+  replace:
     path: /etc/contrail/common_vrouter.env
-    line: vr_mpls_labels=196000 vr_nexthops=200000 vr_vrfs=65536 vr_bridge_entries=1000000 vr_flow_entries=1000720
+    regexp: 'VROUTER_MODULE_OPTIONS.*'
+    replace: VROUTER_MODULE_OPTIONS="vr_mpls_labels=196000 vr_nexthops=200000 vr_vrfs=65536 vr_bridge_entries=1000000 vr_flow_entries=1000720"
 
 - name: Stop agent container
   docker_container:
     name: vrouter_vrouter-agent_1
-    state: stopped
+    state: absent
 
 - name: Bring down vhost0
   shell: ifdown vhost0
