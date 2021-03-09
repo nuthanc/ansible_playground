@@ -1,6 +1,7 @@
 PYTHONPATH=/contrail-test:/contrail-test/scripts:/contrail-test/fixtures:/contrail-test/serial_scripts
 TEST_CONFIG_FILE=contrail_test_input.yaml
-EMAIL_SUBJECT=Python3-mi-sanity-k8s
+EMAIL_SUBJECT=Joint-setup-sanity
 MX_GW_TEST=0
 PYTHON3=1
-TEST_RUN_CMD=bash -x run_tests.sh -m -U -s -T auth
+T=bash -x run_tests.sh -m -U -s -T auth
+OS_TEST_PATH=serial_scripts
