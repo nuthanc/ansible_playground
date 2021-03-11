@@ -4,6 +4,6 @@ EMAIL_SUBJECT=m14-openstack
 MX_GW_TEST=1
 PYTHON3=1
 T=python3 serial_scripts/scale/flow/test_flow.py
-O=code /contrail-test/serial_scripts/scale/flow/test_flow.py || vi /contrail-test/serial_scripts/scale/flow/test_flow.py
+O=vi /contrail-test/serial_scripts/scale/flow/test_flow.py
 c=git checkout --track nuthanc/flow
 f=git fetch https://github.com/nuthanc/tf-test.git flow:flow
