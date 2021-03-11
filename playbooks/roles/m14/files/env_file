@@ -1,9 +1,9 @@
-PYTHONPATH=/contrail-test:/contrail-test/scripts:/contrail-test/fixtures
+PYTHONPATH=/contrail-test:/contrail-test/scripts:/contrail-test/fixtures:/contrail-test/serial_scripts
 TEST_CONFIG_FILE=contrail_test_input.yaml
 EMAIL_SUBJECT=m14-openstack
 MX_GW_TEST=1
 PYTHON3=1
-TEST_RUN_CMD=python3 serial_scripts/scale/test_heat_subintf_scale.py
-MY_FILE="serial_scripts/scale/test_heat_subintf_scale.py"
-c=git checkout --track nuthanc/sub_intf
-f=git fetch https://github.com/nuthanc/tf-test.git sub_intf:sub_intf
+T=python3 serial_scripts/scale/flow/test_flow.py
+O=code /contrail-test/serial_scripts/scale/flow/test_flow.py || vi /contrail-test/serial_scripts/scale/flow/test_flow.py
+c=git checkout --track nuthanc/flow
+f=git fetch https://github.com/nuthanc/tf-test.git flow:flow
