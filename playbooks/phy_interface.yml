@@ -1,0 +1,8 @@
+- hosts: nodem10.englab.juniper.net
+  tasks:
+    - name: Add physical interface in common_vrouter.env
+      lineinfile:
+        path: /etc/contrail/common_vrouter.env
+        line: PHYSICAL_INTERFACE=ens2f1
+    - name: Docker compose down and up
+      shell: cd /etc/contrail/vrouter && docker-compose down && docker-compose up -d
