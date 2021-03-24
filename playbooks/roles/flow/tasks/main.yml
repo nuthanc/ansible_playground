@@ -1,40 +1,29 @@
----
-# - name: Add vr_flow_entries in common_vrouter.env
-#   lineinfile:
-#     path: /etc/contrail/common_vrouter.env
-#     line: VROUTER_MODULE_OPTIONS="vr_mpls_labels=196000 vr_nexthops=200000 vr_vrfs=65536 vr_bridge_entries=1000000 vr_flow_entries=1000820"
-
-- name: Replace VROUTER_MODULE_OPTIONS
-  replace:
-    path: /etc/contrail/common_vrouter.env
-    regexp: 'VROUTER_MODULE_OPTIONS.*'
-    replace: VROUTER_MODULE_OPTIONS="vr_mpls_labels=196000 vr_nexthops=200000 vr_vrfs=65536 vr_bridge_entries=1000000 vr_flow_entries=1000720"
+- name: Add flow_cache_timeout in actions.sh of agent container
+  shell: docker exec -it vrouter_vrouter-agent_1 sed -i '/\[DEFAULT\]/a flow_cache_timeout=9999' actions.sh
 
 - name: Stop agent container
   docker_container:
     name: vrouter_vrouter-agent_1
-    state: absent
+    state: stopped
 
-- name: Bring down vhost0
-  shell: ifdown vhost0
-
-- name: Docker composde down and up of vrouter
-  shell: cd /etc/contrail/vrouter && docker-compose down && docker-compose up -d
+- name: Unload vrouter module
+  shell: rmmod vrouter
 
 - name: Free RAM
   shell: free && sync && echo 3 > /proc/sys/vm/drop_caches && free
 
-- name: Add flow_cache_timeout in actions.sh of agent container
-  shell: docker exec -it vrouter_vrouter-agent_1 sed -i '/\[DEFAULT\]/a flow_cache_timeout=9999' actions.sh
+- name: Insert vrouter module
+  shell: modprobe vrouter
 
 - name: Start agent container
   docker_container:
     name: vrouter_vrouter-agent_1
     state: started
-    restart: yes
 
 - name: contrail-tools vrouter info
   shell: contrail-tools vrouter --info
   register: result
 
 - debug: msg="{{ result.stdout_lines }}"
+
+# These steps + docker rm agent + and docker compose down and up works

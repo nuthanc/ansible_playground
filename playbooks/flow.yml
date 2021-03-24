@@ -1,4 +1,4 @@
 ---
-- hosts: nodem9.englab.juniper.net
+- hosts: nodem9.englab.juniper.net, nodem10.englab.juniper.net
   roles:
     - flow

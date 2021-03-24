@@ -1,0 +1,8 @@
+---
+- hosts: nodem9.englab.juniper.net, nodem10.englab.juniper.net
+  tasks:
+    - name: Stop and Remove agent
+      shell: docker stop contrail-vrouter-agent && docker rm contrail-vrouter-agent
+      ignore_errors: yes
+    - name: Docker compose down and up
+      shell: cd /etc/contrail/vrouter && docker-compose down && docker-compose up -d
