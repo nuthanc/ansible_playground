@@ -71,3 +71,8 @@ nodei2.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ans
 
 [m16]
 nodem16.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
+
+[m16-computes]
+nodem19.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123  ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+nodem20.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+nodem5.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
