@@ -1,5 +1,5 @@
 ---
-- hosts: nodem9.englab.juniper.net
+- hosts: nodem10.englab.juniper.net
   tasks:
     - name: Stop and Remove agent
       shell: docker stop vrouter_vrouter-agent_1 && docker rm vrouter_vrouter-agent_1
