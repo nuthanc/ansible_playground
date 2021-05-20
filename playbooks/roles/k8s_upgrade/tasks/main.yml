@@ -1,0 +1,11 @@
+---
+
+- name: Copy important files to server
+  copy:
+    src: "{{ item }}"
+    dest: /root
+  with_fileglob:
+    - files/*
+  tags:
+    - copy
+

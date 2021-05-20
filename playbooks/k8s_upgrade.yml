@@ -1,0 +1,4 @@
+---
+- hosts: "{{ host | default('nodeg12.englab.juniper.net') }}"
+  roles:
+    - k8s_upgrade

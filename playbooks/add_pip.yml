@@ -1,5 +1,5 @@
 ---
-- hosts: virtual
+- hosts: physical
   tasks:
   - name: Download pip
     shell: curl --retry 3 --retry-delay 10 https://bootstrap.pypa.io/pip/2.7/get-pip.py | sudo python2 - 'pip==20.1'
