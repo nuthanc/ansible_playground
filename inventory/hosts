@@ -12,7 +12,7 @@ localhost
 nodea4.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 
 [physical]
-nodeg12.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 
+nodea4.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 
 nodeg31.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 nodec19.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
 nodec21.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123
