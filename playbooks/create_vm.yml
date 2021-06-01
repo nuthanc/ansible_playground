@@ -1,0 +1,5 @@
+---
+- hosts: nodel2
+  tasks:
+  - name: Transfer the script
+    copy: src=../scripts/l2.sh dest=/root mode=0777
