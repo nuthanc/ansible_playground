@@ -1,5 +1,5 @@
 ---
-- hosts: m16
+- hosts: nodea35
   tasks:
   - name: Add alias to bashrc
     blockinfile:

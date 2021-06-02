@@ -20,3 +20,4 @@ ssh-keygen -R nodem6.englab.juniper.net
 ssh-keygen -R nodem14.englab.juniper.net
 ssh-keygen -R nodem7.englab.juniper.net
 ssh-keygen -R nodem16.englab.juniper.net
+ssh-keygen -R 10.204.216.31
