@@ -1,0 +1,13 @@
+---
+- hosts: m16
+  tasks:
+  - name: Add alias to bashrc
+    blockinfile:
+      path: /root/.bashrc
+      block: |
+        logs() {
+          container=$(docker ps |awk '/kolla/ { print $NF }')
+          docker exec $container tail -f /var/log/ansible.log
+        }
+
+        alias s="source ~/.bashrc"

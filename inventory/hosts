@@ -79,3 +79,6 @@ nodem5.englab.juniper.net ansible_ssh_user=root ansible_ssh_pass=c0ntrail123 ans
 
 [nodel2]
 10.204.218.250 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123  ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[nodea35]
+10.204.216.31 ansible_ssh_user=root ansible_ssh_pass=c0ntrail123  ansible_ssh_common_args='-o StrictHostKeyChecking=no'
