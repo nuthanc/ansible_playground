@@ -8,3 +8,4 @@ run=python3 -m testtools.run serial_scripts.scale.flow.test_flow.TestFlowScale.t
 O=vi /contrail-test/serial_scripts/scale/flow/test_flow.py
 c=git checkout --track nuthanc/flow
 f=git fetch https://github.com/nuthanc/tf-test.git flow:flow
+s=bash -x run_tests.sh -m -U -T sub_intf_scale
