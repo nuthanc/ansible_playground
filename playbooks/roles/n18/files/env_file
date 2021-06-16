@@ -4,4 +4,3 @@ EMAIL_SUBJECT=Joint-setup-sanity
 MX_GW_TEST=0
 PYTHON3=1
 T=bash -x run_tests.sh -m -U -s -T auth
-OS_TEST_PATH=serial_scripts
