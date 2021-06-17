@@ -1,4 +1,4 @@
 ---
-- hosts: "{{ host | default('nodeg12.englab.juniper.net') }}"
+- hosts: "{{ host | default('nodea4.englab.juniper.net') }}"
   roles:
     - phy_sanity
