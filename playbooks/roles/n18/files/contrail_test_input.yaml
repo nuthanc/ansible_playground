@@ -98,7 +98,7 @@ deployment:
 test_configuration:
   image_web_server: 10.204.217.158
   auth_port: 35357
-  auth_url: http://192.168.7.32:35357/v3
+  auth_url: http://192.168.7.33:35357/v3
   juju_server: 192.168.7.18
   web_server:
     server: 10.204.216.50
