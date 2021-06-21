@@ -139,7 +139,7 @@ control_data:
     nodeg31:
         ip: 10.204.217.71
         ctrldata_ip: 77.77.1.30
-        prefix: 24
+        prefix: 24      
         gw: 77.77.1.100
         device: enp1s0f1
     nodec23:
