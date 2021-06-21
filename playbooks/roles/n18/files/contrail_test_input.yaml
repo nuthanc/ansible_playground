@@ -78,7 +78,7 @@ contrail_configuration:
   RABBITMQ_USE_SSL: 'true'
   CASSANDRA_SSL_ENABLE: 'true'
   KUBERNETES_PUBLIC_FIP_POOL:
-    domain: admin_domain
+    domain: default-domain
     name: __fip_pool_public__
     network: __public__
     project: k8s-default
@@ -114,7 +114,7 @@ test_configuration:
     sender: contrailbuild@juniper.net
   use_project_scoped_token: True
   ext_routers:
-        blr-mx-2: 192.168.27.1
+    blr-mx-2: 192.168.27.1
   router_asn: 64512
   public_rt: 19212
   public_subnet: 10.204.220.128/29

@@ -1,6 +1,6 @@
 PYTHONPATH=/contrail-test:/contrail-test/scripts:/contrail-test/fixtures:/contrail-test/serial_scripts
 TEST_CONFIG_FILE=contrail_test_input.yaml
 EMAIL_SUBJECT=Joint-setup-sanity
-MX_GW_TEST=1
+MX_GW_TEST=0
 PYTHON3=1
 T=bash -x run_tests.sh -m -U -s -T auth
