@@ -93,6 +93,7 @@ test_configuration:
     cfgm0_host_string: root@10.204.218.103
     cfgm0_host_pwd: c0ntrail123
     image_web_server: 10.84.5.120
+    test_docker_registry: bng-artifactory.juniper.net/atom-docker-remote/
     use_project_scoped_token: True
     public_host: 10.84.5.120
     ext_routers:
