@@ -16,9 +16,9 @@ provider_config:
     ntpserver: 10.204.217.158
     domainsuffix: englab.juniper.net
 instances:
-  nodeg12:
+  nodea4:
     provider: bms
-    ip: 10.204.217.52
+    ip: 10.204.216.120
     roles:
       config_database:
       config:
@@ -64,9 +64,9 @@ instances:
       k8s_node:
       vrouter:
         VROUTER_GATEWAY: 77.77.1.100
-  nodea4:
+  k8s_contrail_command:
     provider: bms
-    ip: 10.204.216.120
+    ip: 10.204.216.88
     roles:
       contrail_command:
 
@@ -78,7 +78,7 @@ contrail_configuration:
   KUBERNETES_PUBLIC_FIP_POOL: {'project': 'k8s-default', 'domain': 'default-domain', 'name': '__fip_pool_public__', 'network': '__public__'}
   KUBERNETES_IP_FABRIC_SUBNETS: 77.77.1.160/27
   CLOUD_ORCHESTRATOR: kubernetes
-  CONTROLLER_NODES: 10.204.217.52,10.204.217.71,10.204.217.8
+  CONTROLLER_NODES: 10.204.216.120,10.204.217.71,10.204.217.8
   CONTROL_NODES: 77.77.1.20,77.77.1.30,77.77.1.11
   KUBERNETES_API_NODES: 77.77.1.20
   KUBERNETES_API_SERVER: 77.77.1.20
@@ -95,11 +95,12 @@ contrail_configuration:
   CONFIG_DATABASE_NODEMGR__DEFAULTS__minimum_diskGB: "2"
 
 test_configuration:
-    cfgm0_host_string: root@10.204.217.52
+    cfgm0_host_string: root@10.204.216.120
     cfgm0_host_pwd: c0ntrail123
     cluster_id: k8s_nodeg12_ha_setup
     upgrade: True
     image_web_server: 10.84.5.120
+    test_docker_registry: bng-artifactory.juniper.net/atom-docker-remote/
     use_project_scoped_token: True
     public_host: 10.84.5.120
     ext_routers:
@@ -130,8 +131,8 @@ server_manager:
   client: /cs-shared/server-manager/client/server-manager
 
 control_data:
-    nodeg12:
-        ip: 10.204.217.52
+    nodea4:
+        ip: 10.204.216.120
         ctrldata_ip: 77.77.1.20
         prefix: 24
         gw: 77.77.1.100
