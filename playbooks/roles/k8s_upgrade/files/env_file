@@ -4,4 +4,4 @@ EMAIL_SUBJECT=k8s-upgrade
 MX_GW_TEST=1
 PYTHON3=1
 TEST_RUN_CMD=bash -x run_tests.sh -m -U -s -T k8s_upgrade
-T=bash -x run_tests.sh -m -U -s -T k8s_upgrade
+T=bash -x run_tests.sh -m -U -T k8s_upgrade

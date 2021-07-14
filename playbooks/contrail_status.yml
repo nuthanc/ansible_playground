@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ host | default('virtual') }}"
+- hosts: "{{ host | default('physical') }}"
   tasks:
     - name: Check contrail status
       command: contrail-status
